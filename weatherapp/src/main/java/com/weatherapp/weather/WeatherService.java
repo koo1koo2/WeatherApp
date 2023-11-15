@@ -1,9 +1,16 @@
 package com.weatherapp.weather;
 
+//TODO Parse response string, return weatherdata instance
 public class WeatherService {
-    public WeatherData getWeatherData(String location) {
-        // Implement logic to fetch weather data based on the location
-        // You can use a weather API or any other data source
-        // Return the fetched weather data
+        
+
+    public WeatherData getCurrentWeatherData(String fetchedDataString) {
+        
+        // TODO Construct a weatherdata instance with the fetched data
+    }
+    
+    public WeatherData getWeatherForecast(String fetchedDataString) {
+       //forloopba vhogy
+        //TODO forecastday array index
     }
 }
