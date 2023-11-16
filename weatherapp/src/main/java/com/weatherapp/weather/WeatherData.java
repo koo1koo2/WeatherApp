@@ -13,26 +13,60 @@ public class WeatherData {
     private String conditions;
     private String date;
     private String lastUpdated;
-
-    //TODO Constructor for current weather
-    //TODO Costructor for weather forecast
-    public WeatherData(String temperatureNow, String temperatureMax, String temperatureMin,
-    String temperatureAvg, String windSpeed, String windGusts, String feelsLike, 
-    String precipitation, String conditions, String date, String lastUpdated) {
+    private String chanceOfRain;
+    private String chanceOfSnow;
+    private String totalSnow;
+    private String totalPrecip;
+    
+    //Constructor for current weather
+    public WeatherData(String temperatureNow, String windSpeed, String windGusts, String feelsLike, String precipitation, String conditions, String lastUpdated) {
         this.temperatureNow = temperatureNow;
-        this.temperatureMax = temperatureMax;
-        this.temperatureMin = temperatureMin;
-        this.temperatureAvg = temperatureAvg;
         this.windSpeed = windSpeed;
         this.windGusts = windGusts;
         this.feelsLike = feelsLike;
         this.precipitation = precipitation;
         this.conditions = conditions;
-        this.date = date;
         this.lastUpdated = lastUpdated;
+    }
+    //Costructor for weather forecast
+    public WeatherData (String temperatureMax, String temperatureMin,
+    String temperatureAvg, String windSpeed, String windGusts, String chanceOfRain, String chanceOfSnow,
+    String totalSnow, String totalPrecip, String precipitation, String conditions, String date) {
+        
+        this.temperatureMax = temperatureMax;
+        this.temperatureMin = temperatureMin;
+        this.temperatureAvg = temperatureAvg;
+        this.precipitation = precipitation;
+        this.conditions = conditions;
+        this.date = date;
+        this.chanceOfRain = chanceOfRain;
+        this.chanceOfSnow = chanceOfSnow;
+        this.totalSnow = totalSnow;
+        this.totalPrecip = totalPrecip;
+        
     }
     // Getters
     
+   /*  public String getCurrentWeather() {
+
+    }
+
+    public String getWeatherForecast() {
+
+    } */
+
+    public String getChanceOfRain() {
+        return chanceOfRain;
+    }
+    public String getChanceOfSnow() {
+        return chanceOfSnow;
+    }
+    public String getTotalSnow() {
+        return totalSnow;
+    }
+    public String getTotalPrecip() {
+        return totalPrecip;
+    }
     public String getTemperatureNow() {
         return temperatureNow;
     }

@@ -13,6 +13,8 @@ public class WeatherApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Initialize the main window
+        // new weatherapi 
+        // weatherapi string to call weatherservice method to get weatherdata
         WeatherService weatherService = new WeatherService();
         MainWindow mainWindow = new MainWindow(weatherService);
         //TODO get location input

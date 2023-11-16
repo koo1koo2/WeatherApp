@@ -41,9 +41,9 @@ public class WeatherAPI {
                 reader.close();
 
                 // Convert stringbuilder to string
-                String responseString = response.toString();
+                String weatherDataString = response.toString();
 
-                return responseString;
+                return weatherDataString;
                 //TODO handle exceptions
             } else {
                 return null;
