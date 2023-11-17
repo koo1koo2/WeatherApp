@@ -7,6 +7,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import com.weatherapp.weather.WeatherAPI;
+import com.weatherapp.weather.WeatherData;
 import com.weatherapp.weather.WeatherService;
 
 import javafx.geometry.Insets;
@@ -16,10 +18,12 @@ public class MainWindow extends BorderPane {
     private Button fetchButton;
     private Label currentWeatherLabel;
     private Label forecastLabel;
+    private WeatherAPI weatherAPI;
     private WeatherService weatherService;
 
-    public MainWindow(WeatherService weatherService) {
+    public MainWindow(WeatherAPI weatherAPI, WeatherService weatherService) {
         // Initialize UI components
+        this.weatherAPI = weatherAPI;
         this.weatherService = weatherService;
         locationInput = new TextField();
         fetchButton = new Button("Fetch Weather");
@@ -48,11 +52,12 @@ public class MainWindow extends BorderPane {
     // Fetch weather using the WeatherService
     private void fetchWeather() {
         String location = locationInput.getText();
-        WeatherData weatherData = weatherService.getWeatherData(location);
+        String weatherDataString = weatherAPI.fetchWeatherData(location);
+        WeatherData currentWeather = weatherService.getCurrentWeatherData(weatherDataString);
 
         // Update UI components with the fetched data
-        currentWeatherLabel.setText("Current Weather: " + weatherData.getCurrentWeather());
-        forecastLabel.setText("5-Day Forecast: " + weatherData.getForecast());
+        currentWeatherLabel.setText("Current Weather: " + currentWeather.getConditions());
+        // forecastLabel.setText("5-Day Forecast: " + weatherData.getForecast());
     }
 }
 

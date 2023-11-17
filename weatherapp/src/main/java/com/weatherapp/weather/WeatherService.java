@@ -31,7 +31,7 @@ public class WeatherService{
     }
     
     public LinkedList<WeatherData> getWeatherForecast(String weatherDataString) {
-       //forloopba vhogy
+       
         //Create an empty list
         LinkedList<WeatherData> forecastDaysList = new LinkedList<WeatherData>();
 
