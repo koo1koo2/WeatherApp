@@ -28,7 +28,7 @@ public class MainWindow extends BorderPane {
         locationInput = new TextField();
         fetchButton = new Button("Fetch Weather");
         currentWeatherLabel = new Label("Current Weather: ");
-        forecastLabel = new Label("5-Day Forecast: ");
+        forecastLabel = new Label("3-Day Forecast: ");
 
         // Set up event handler for the fetch button
         fetchButton.setOnAction(event -> fetchWeather());
@@ -57,7 +57,7 @@ public class MainWindow extends BorderPane {
 
         // Update UI components with the fetched data
         currentWeatherLabel.setText("Current Weather: " + currentWeather.getConditions());
-        // forecastLabel.setText("5-Day Forecast: " + weatherData.getForecast());
+        forecastLabel.setText("5-Day Forecast: " + location.length());
     }
 }
 

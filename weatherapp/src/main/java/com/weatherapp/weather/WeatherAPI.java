@@ -10,7 +10,7 @@ import java.net.URISyntaxException;
 // Fetch weather data based on the location
 // Return response string
 public class WeatherAPI {
-    private static final String API_KEY = "****";
+    private static final String API_KEY = "Enter_your_API-key_here1";
     private static final String API_ENDPOINT = "http://api.weatherapi.com/v1/forecast.json?key=";
 
     public String fetchWeatherData(String location) {
