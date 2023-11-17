@@ -1,6 +1,5 @@
 package com.weatherapp.weather;
-import java.lang.reflect.Array;
-
+import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -31,14 +30,40 @@ public class WeatherService{
 
     }
     
-    public WeatherData[] getWeatherForecast(String weatherDataString) {
+    public LinkedList<WeatherData> getWeatherForecast(String weatherDataString) {
        //forloopba vhogy
-        //TODO forecastday array index
+        //Create an empty list
+        LinkedList<WeatherData> forecastDaysList = new LinkedList<WeatherData>();
+
         // Create a JSON object from the String
         JSONObject jsonObject = new JSONObject(weatherDataString);
 
         JSONObject forecastObject = jsonObject.getJSONObject("forecast");
         JSONArray forecastDaysArray = forecastObject.getJSONArray("forecastday");
+
+        // Iterate through forecast days
+        for (int i = 0; i < forecastDaysArray.length(); i++) {
+
+            JSONObject forecastDayObject = forecastDaysArray.getJSONObject(i);
+            String date = forecastDayObject.getString("date");
+            JSONObject dayObject = forecastDayObject.getJSONObject("day");
+            String temperatureMax = String.valueOf(dayObject.getFloat("maxtemp_c"));
+            String temperatureMin = String.valueOf(dayObject.getFloat("mintemp_c"));
+            String teperatureAvg = String.valueOf(dayObject.getFloat("avgtemp_c"));
+            String windSpeed = String.valueOf(dayObject.getFloat("maxwind_kph"));
+            String totalPrecip = String.valueOf(dayObject.getFloat("totalprecip_mm"));
+            String totalSnow = String.valueOf(dayObject.getFloat("totalsnow_cm"));
+            String chanceOfRain = String.valueOf(dayObject.getInt("daily_chance_of_rain"));
+            String chanceOfSnow = String.valueOf(dayObject.getInt("daily_chance_of_snow"));
+            JSONObject conditionObject = dayObject.getJSONObject("condition");
+            String condition = conditionObject.getString("text");
+
+            //Construnct a weatherdata instance and add it to the list
+            WeatherData forecastDay = new WeatherData(temperatureMax, temperatureMin, teperatureAvg, windSpeed, chanceOfRain, chanceOfSnow, totalSnow, totalPrecip, condition, date);
+            forecastDaysList.add(forecastDay);
+        }
+
+        return forecastDaysList;
 
     }
 }

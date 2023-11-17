@@ -30,20 +30,19 @@ public class WeatherData {
     }
     //Costructor for weather forecast
     public WeatherData (String temperatureMax, String temperatureMin,
-    String temperatureAvg, String windSpeed, String windGusts, String chanceOfRain, String chanceOfSnow,
-    String totalSnow, String totalPrecip, String precipitation, String conditions, String date) {
+    String temperatureAvg, String windSpeed, String chanceOfRain, String chanceOfSnow,
+    String totalSnow, String totalPrecip, String conditions, String date) {
         
         this.temperatureMax = temperatureMax;
         this.temperatureMin = temperatureMin;
         this.temperatureAvg = temperatureAvg;
-        this.precipitation = precipitation;
         this.conditions = conditions;
         this.date = date;
         this.chanceOfRain = chanceOfRain;
         this.chanceOfSnow = chanceOfSnow;
         this.totalSnow = totalSnow;
         this.totalPrecip = totalPrecip;
-        
+        this.windSpeed = windSpeed;
     }
     // Getters
     
