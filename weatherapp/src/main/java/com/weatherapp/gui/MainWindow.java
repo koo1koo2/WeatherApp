@@ -7,6 +7,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 import com.weatherapp.weather.WeatherAPI;
 import com.weatherapp.weather.WeatherData;
 import com.weatherapp.weather.WeatherService;
@@ -34,8 +37,8 @@ public class MainWindow extends BorderPane {
         fetchButton.setOnAction(event -> fetchWeather());
 
         // Create layout panes for specific regions
-        VBox topContainer = new VBox();
-        HBox centerContainer = new HBox();
+        HBox topContainer = new HBox();
+        VBox centerContainer = new VBox();
 
         // Add components to the layout panes
         topContainer.getChildren().addAll(locationInput, fetchButton);
@@ -54,10 +57,15 @@ public class MainWindow extends BorderPane {
         String location = locationInput.getText();
         String weatherDataString = weatherAPI.fetchWeatherData(location);
         WeatherData currentWeather = weatherService.getCurrentWeatherData(weatherDataString);
+        ArrayList<WeatherData> forecastList = weatherService.getWeatherForecast(weatherDataString);
 
         // Update UI components with the fetched data
-        currentWeatherLabel.setText("Current Weather: " + currentWeather.getConditions());
-        forecastLabel.setText("5-Day Forecast: " + location.length());
+        currentWeatherLabel.setText("Current Weather: " + currentWeather.getConditions()+ " " + currentWeather.getTemperatureNow() + "°C " + "Feel like: " 
+                                    +currentWeather.getFeelsLike() + "°C " + "Wind speed: " + currentWeather.getWindSpeed() + " kph " + "Wind gusts: " + 
+                                    currentWeather.getWindGusts() + " kph " + "Precipitation: " + currentWeather.getPrecipitation() + " mm "  + "Last updated: " 
+                                    + currentWeather.getLastUpdated());
+        forecastLabel.setText("3-Day Forecast: \n" + forecastList.get(0).getForecast() + "\n" + forecastList.get(1).getForecast() + "\n" +
+        forecastList.get(2).getForecast());
     }
 }
 

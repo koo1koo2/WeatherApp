@@ -1,4 +1,5 @@
 package com.weatherapp.weather;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,10 +31,11 @@ public class WeatherService{
 
     }
     
-    public LinkedList<WeatherData> getWeatherForecast(String weatherDataString) {
+    public ArrayList<WeatherData> getWeatherForecast(String weatherDataString) {
        
         //Create an empty list
-        LinkedList<WeatherData> forecastDaysList = new LinkedList<WeatherData>();
+        
+        ArrayList<WeatherData> forecastDaysList = new ArrayList<WeatherData>();
 
         // Create a JSON object from the String
         JSONObject jsonObject = new JSONObject(weatherDataString);

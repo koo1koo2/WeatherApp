@@ -48,11 +48,13 @@ public class WeatherData {
     
    /*  public String getCurrentWeather() {
 
-    }
-
-    public String getWeatherForecast() {
-
     } */
+
+    public String getForecast() {
+        return date + " " + conditions + " " + "Avg. temp.: " + temperatureAvg + "°C " + "Max. temp.: " + temperatureMax + "°C " + "Min. temp.: " 
+        + temperatureMin + "°C " + "Chance of rain: " + chanceOfRain + "% " + "Chance of snow: " + chanceOfSnow + "% "
+        + "Total precipitation: " + totalPrecip + " mm " + "Total snow: " + totalSnow + " mm " + "Wind: " + windSpeed + " kph ";
+    }
 
     public String getChanceOfRain() {
         return chanceOfRain;
@@ -69,48 +71,36 @@ public class WeatherData {
     public String getTemperatureNow() {
         return temperatureNow;
     }
-
     public String getTemperatureMax() {
         return temperatureMax;
     }
-
     public String getTemperatureMin() {
         return temperatureMin;
     }
-
     public String getTemperatureAvg() {
         return temperatureAvg;
     }
-
     public String getWindSpeed() {
         return windSpeed;
     }
-
     public String getWindGusts() {
         return windGusts;
     }
-
     public String getFeelsLike() {
         return feelsLike;
     }
-
     public String getPrecipitation() {
         return precipitation;
     }
-
     public String getConditions() {
         return conditions;
     }
-
     public String getDate() {
         return date;
     }
-
     public String getLastUpdated() {
         return lastUpdated;
     }
 
-
-    
-    //TODO setters 
+     
 }

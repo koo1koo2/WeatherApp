@@ -11,13 +11,13 @@ import java.net.URISyntaxException;
 // Return response string
 public class WeatherAPI {
     private static final String API_KEY = "Enter_your_API-key_here1";
-    private static final String API_ENDPOINT = "http://api.weatherapi.com/v1/forecast.json?key=";
+    private static final String API_ENDPOINT = "http://api.weatherapi.com/";
 
     public String fetchWeatherData(String location) {
 
         try {
             // Build the API URL with the location and API key
-            URI uri = new URI(API_ENDPOINT + API_KEY + "?q=" + location + "&days=3&aqi=no&alerts=no");
+            URI uri = new URI(API_ENDPOINT + "v1/forecast.json?key=" + API_KEY + "&q=" + location + "&days=3&aqi=no&alerts=no");
             URL url = uri.toURL();
 
             // Open a connection to the URL
@@ -46,10 +46,12 @@ public class WeatherAPI {
                 return weatherDataString;
                 //TODO handle exceptions
             } else {
+                System.out.println("return code: " + responseCode);
                 return null;
             }
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
+            System.out.println("Stg went wrong");
             return null;
         }
         
