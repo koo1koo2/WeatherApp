@@ -22,7 +22,7 @@ public class WeatherApp extends Application {
       
         
         // Create a scene and set it on the stage
-        Scene scene = new Scene(mainWindow, 800, 600); // Adjust the size accordingly
+        Scene scene = new Scene(mainWindow, 700, 350);
         primaryStage.setScene(scene);
 
         // Set stage properties

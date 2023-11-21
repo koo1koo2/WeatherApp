@@ -1,14 +1,17 @@
 package com.weatherapp.weather;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-//TODO Parse response string, return weatherdata instance
+//Parse response string, return weatherdata 
 public class WeatherService{
         
     public WeatherData getCurrentWeatherData(String weatherDataString) {
         
+        //Check if input string is null
+        if (weatherDataString == null || weatherDataString.isEmpty()) {
+            return null;
+        }
         // Create a JSON object from the String
         JSONObject jsonObject = new JSONObject(weatherDataString);
 
@@ -33,8 +36,11 @@ public class WeatherService{
     
     public ArrayList<WeatherData> getWeatherForecast(String weatherDataString) {
        
+        if (weatherDataString == null || weatherDataString.isEmpty()) {
+            return null;
+        }
+
         //Create an empty list
-        
         ArrayList<WeatherData> forecastDaysList = new ArrayList<WeatherData>();
 
         // Create a JSON object from the String

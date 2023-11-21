@@ -44,18 +44,9 @@ public class WeatherData {
         this.totalPrecip = totalPrecip;
         this.windSpeed = windSpeed;
     }
+    
     // Getters
     
-   /*  public String getCurrentWeather() {
-
-    } */
-
-    public String getForecast() {
-        return date + " " + conditions + " " + "Avg. temp.: " + temperatureAvg + "°C " + "Max. temp.: " + temperatureMax + "°C " + "Min. temp.: " 
-        + temperatureMin + "°C " + "Chance of rain: " + chanceOfRain + "% " + "Chance of snow: " + chanceOfSnow + "% "
-        + "Total precipitation: " + totalPrecip + " mm " + "Total snow: " + totalSnow + " mm " + "Wind: " + windSpeed + " kph ";
-    }
-
     public String getChanceOfRain() {
         return chanceOfRain;
     }
