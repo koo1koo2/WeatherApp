@@ -5,7 +5,7 @@
 
     <groupId>com.weatherapp</groupId>
     <artifactId>weatherapp</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <repositories>
         <repository>
@@ -43,6 +43,12 @@
     </dependencies>
     
     <build>
+        <resources>
+        <resource>
+            <directory>C:\Users\admin\projects\Java_projects\WeatherApp\.vscode</directory>
+        </resource>
+        <!-- Add another resource entry for the .json folder if needed -->
+    </resources>
         <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -53,7 +59,19 @@
             <target>1.8</target>
             </configuration>
         </plugin>
-        <!-- Other build and plugin configurations as needed -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.weatherapp.WeatherApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+        </plugin>
+        
         </plugins>
     </build>
 
