@@ -12,10 +12,7 @@
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
-        <repository>
-            <id>javafx</id>
-            <url>https://nexus.openjfx.io/content/repositories/releases/</url>
-        </repository>
+        
     </repositories>
 
 
@@ -28,12 +25,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>22-ea+16</version>
+            <version>21.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>22-ea+16</version>
+            <version>21.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
@@ -43,12 +40,8 @@
     </dependencies>
     
     <build>
-        <resources>
-        <resource>
-            <directory>C:\Users\admin\projects\Java_projects\WeatherApp\.vscode</directory>
-        </resource>
-        <!-- Add another resource entry for the .json folder if needed -->
-    </resources>
+        
+    
         <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -59,20 +52,44 @@
             <target>1.8</target>
             </configuration>
         </plugin>
+            
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
             <version>3.1.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.weatherapp.WeatherApp</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <mainClass>com.weatherapp.WeatherApp</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
         </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.2.4</version> <!-- Use the latest version -->
+
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>com.weatherapp.WeatherApp</mainClass>
+                            </transformer>
+                        </transformers>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
         
-        </plugins>
+        
     </build>
 
 </project>
